@@ -1,14 +1,16 @@
 from django.contrib import admin
-from .models import Categoria, Contatos
+from .models import Categoria, Contato
 
-class ContatosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'sobrenome', 'telefone', 'email', 'data_criacao', 'categoria', 'mostrar')
+
+class ContatoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome', 'sobrenome', 'telefone', 'email',
+                    'data_criacao', 'categoria', 'mostrar')
     list_display_links = ('id', 'nome', 'sobrenome')
-    #list_filter = ('nome', 'sobrenome')
-    list_per_page = 5
+    # list_filter = ('nome', 'sobrenome')
+    list_per_page = 10
     search_fields = ('nome', 'sobrenome', 'telefone')
-    list_editable =  ('telefone', 'mostrar')
-    
+    list_editable = ('telefone', 'mostrar')
+
 
 admin.site.register(Categoria)
-admin.site.register(Contatos, ContatosAdmin)
+admin.site.register(Contato, ContatoAdmin)
